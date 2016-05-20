@@ -35,3 +35,4 @@ http://localhost:8001/api/v1/proxy/namespaces/prometheus/services/grafana/
         entrypoint in the container which starts grafana and adds the
         datasource when grafana starts.
         - https://github.com/grafana/grafana/issues/2977
+        - https://github.com/grafana/grafana/issues/2835 <-- Looks like the HTTP API is the way to go
