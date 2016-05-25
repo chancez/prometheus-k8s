@@ -34,7 +34,7 @@ data:
 
       kubernetes_sd_configs:
       - api_servers:
-        - 'https://kubernetes.default.svc'
+        - 'https://kubernetes.default'
         in_cluster: true
 
       relabel_configs:
@@ -68,7 +68,7 @@ data:
 
       kubernetes_sd_configs:
       - api_servers:
-        - 'https://kubernetes.default.svc'
+        - 'https://kubernetes.default'
         in_cluster: true
 
       relabel_configs:
@@ -114,7 +114,7 @@ data:
 
       kubernetes_sd_configs:
       - api_servers:
-        - 'https://kubernetes.default.svc'
+        - 'https://kubernetes.default'
         in_cluster: true
 
       relabel_configs:

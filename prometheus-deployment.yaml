@@ -12,7 +12,7 @@ spec:
         app: prometheus
     spec:
       containers:
-      - image: prom/prometheus
+      - image: quay.io/prometheus/prometheus:0.19.0
         command: ["/bin/prometheus"]
         args: [
              "-config.file=/etc/prometheus/prometheus.yml",
@@ -21,6 +21,13 @@ spec:
              "-web.console.templates=/etc/prometheus/consoles",
         ]
         name: prometheus
+        resources:
+          requests:
+            memory: 2500Mi
+            cpu: 500m
+          limits:
+            memory: 3000Mi
+            cpu: 500m
         ports:
         - containerPort: 9090
           hostPort: 9090
