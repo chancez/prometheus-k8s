@@ -1,11 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "3.1.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "id": null,
   "title": "Kubernetes - Cluster Overview",
-  "originalTitle": "Kubernetes - Cluster Overview",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
   "editable": false,
-  "hideControls": false,
+  "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
     {
@@ -22,7 +58,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "format": "percent",
@@ -55,7 +91,7 @@
               "expr": "sum(container_memory_usage_bytes{kubernetes_role=\"node\", id=\"/\"}) / sum(machine_memory_bytes{kubernetes_role=\"node\"}) * 100",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "75,90",
@@ -69,7 +105,25 @@
               "value": "null"
             }
           ],
-          "valueName": "current"
+          "valueName": "current",
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         },
         {
           "cacheTimeout": null,
@@ -80,7 +134,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "format": "bytes",
@@ -113,7 +167,7 @@
               "expr": "sum(machine_memory_bytes{kubernetes_role=\"node\"})",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "",
@@ -127,7 +181,25 @@
               "value": "null"
             }
           ],
-          "valueName": "current"
+          "valueName": "current",
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         },
         {
           "cacheTimeout": null,
@@ -138,7 +210,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "format": "bytes",
@@ -172,7 +244,7 @@
               "intervalFactor": 2,
               "metric": "container_memory_usage_bytes",
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "",
@@ -186,7 +258,25 @@
               "value": "null"
             }
           ],
-          "valueName": "current"
+          "valueName": "current",
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         },
         {
           "cacheTimeout": null,
@@ -197,7 +287,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "format": "bytes",
@@ -231,7 +321,7 @@
               "intervalFactor": 2,
               "metric": "container_memory_usage_bytes",
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "",
@@ -245,7 +335,25 @@
               "value": "null"
             }
           ],
-          "valueName": "current"
+          "valueName": "current",
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         },
         {
           "cacheTimeout": null,
@@ -256,7 +364,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "format": "percent",
@@ -289,7 +397,7 @@
               "expr": "100 * sum(container_fs_usage_bytes{kubernetes_role=\"node\", id=\"/\"}) / sum(container_fs_limit_bytes{kubernetes_role=\"node\", id=\"/\"})",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "75,90",
@@ -303,7 +411,25 @@
               "value": "null"
             }
           ],
-          "valueName": "avg"
+          "valueName": "avg",
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         }
       ],
       "showTitle": true,
@@ -317,7 +443,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": 2,
           "editable": false,
           "error": false,
@@ -367,7 +493,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total",
               "refId": "A",
-              "step": 30
+              "step": 4
             },
             {
               "expr": "sum(container_memory_usage_bytes{kubernetes_role=\"node\", id=\"/\"})",
@@ -375,7 +501,7 @@
               "intervalFactor": 2,
               "legendFormat": "Container Used",
               "refId": "B",
-              "step": 30
+              "step": 4
             },
             {
               "expr": "sum(container_memory_working_set_bytes{kubernetes_role=\"node\", id=\"/\"})",
@@ -383,7 +509,7 @@
               "intervalFactor": 2,
               "legendFormat": "Container Working",
               "refId": "C",
-              "step": 30
+              "step": 4
             }
           ],
           "timeFrom": null,
@@ -392,7 +518,8 @@
           "tooltip": {
             "msResolution": true,
             "shared": true,
-            "value_type": "cumulative"
+            "value_type": "cumulative",
+            "sort": 0
           },
           "type": "graph",
           "x-axis": true,
@@ -440,7 +567,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": 0,
           "editable": false,
           "error": false,
@@ -462,7 +589,7 @@
           "postfixFontSize": "50%",
           "prefix": "",
           "prefixFontSize": "50%",
-          "repeatIteration": 1463086711910,
+          "repeatIteration": 1469150898750,
           "span": 3,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
@@ -475,7 +602,7 @@
               "expr": "time() - container_start_time_seconds{kubernetes_role=\"node\", id=\"/\", instance=~\"$node\"}",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 600
+              "step": 60
             }
           ],
           "thresholds": "",
@@ -489,12 +616,31 @@
               "value": "null"
             }
           ],
-          "valueName": "avg"
+          "valueName": "avg",
+          "scopedVars": {},
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1
         },
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": 2,
           "editable": false,
           "error": false,
@@ -533,7 +679,7 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1463086711910,
+          "repeatIteration": 1469150898750,
           "seriesOverrides": [],
           "span": 3,
           "stack": false,
@@ -546,7 +692,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total",
               "refId": "A",
-              "step": 120
+              "step": 20
             },
             {
               "expr": "container_memory_usage_bytes{kubernetes_role=\"node\", id=\"/\", instance=~\"$node\"}",
@@ -554,7 +700,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used",
               "refId": "B",
-              "step": 120
+              "step": 20
             },
             {
               "expr": "container_memory_working_set_bytes{kubernetes_role=\"node\", id=\"/\", instance=~\"$node\"}",
@@ -562,7 +708,7 @@
               "intervalFactor": 2,
               "legendFormat": "Working",
               "refId": "C",
-              "step": 120
+              "step": 20
             }
           ],
           "timeFrom": null,
@@ -571,7 +717,8 @@
           "tooltip": {
             "msResolution": true,
             "shared": true,
-            "value_type": "cumulative"
+            "value_type": "cumulative",
+            "sort": 0
           },
           "type": "graph",
           "x-axis": true,
@@ -600,12 +747,13 @@
               "min": null,
               "show": true
             }
-          ]
+          ],
+          "scopedVars": {}
         },
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": false,
           "error": false,
           "fill": 1,
@@ -641,7 +789,7 @@
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1463086711910,
+          "repeatIteration": 1469150898750,
           "seriesOverrides": [],
           "span": 3,
           "stack": false,
@@ -653,7 +801,7 @@
               "intervalFactor": 2,
               "legendFormat": "",
               "refId": "A",
-              "step": 120
+              "step": 20
             }
           ],
           "timeFrom": null,
@@ -662,7 +810,8 @@
           "tooltip": {
             "msResolution": false,
             "shared": true,
-            "value_type": "individual"
+            "value_type": "individual",
+            "sort": 0
           },
           "type": "graph",
           "x-axis": true,
@@ -691,12 +840,13 @@
               "min": null,
               "show": true
             }
-          ]
+          ],
+          "scopedVars": {}
         },
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": 0,
           "editable": false,
           "error": false,
@@ -733,7 +883,7 @@
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1463086711910,
+          "repeatIteration": 1469150898750,
           "seriesOverrides": [
             {}
           ],
@@ -745,7 +895,7 @@
               "expr": "sum(container_fs_usage_bytes{kubernetes_role=\"node\", id=\"/\", instance=~\"$node\"}) / sum(container_fs_limit_bytes{kubernetes_role=\"node\", id=\"/\", instance=~\"$node\"})",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 120
+              "step": 20
             }
           ],
           "timeFrom": null,
@@ -754,7 +904,8 @@
           "tooltip": {
             "msResolution": false,
             "shared": true,
-            "value_type": "cumulative"
+            "value_type": "cumulative",
+            "sort": 0
           },
           "type": "graph",
           "x-axis": true,
@@ -783,12 +934,20 @@
               "min": null,
               "show": true
             }
-          ]
+          ],
+          "scopedVars": {}
         }
       ],
       "repeat": "node",
       "showTitle": true,
-      "title": "$node"
+      "title": "$node",
+      "scopedVars": {
+        "node": {
+          "text": "172.17.4.99",
+          "value": "172.17.4.99",
+          "selected": false
+        }
+      }
     }
   ],
   "time": {
@@ -825,21 +984,14 @@
     "list": [
       {
         "allFormat": "glob",
-        "current": {
-        },
-        "datasource": "prometheus",
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
         "name": "node",
-        "options": [
-          {
-            "text": "All",
-            "value": "$__all",
-            "selected": false
-          }
-        ],
+        "options": [],
         "query": "label_values(machine_cpu_cores, instance)",
         "refresh": 1,
         "refresh_on_load": true,
@@ -853,6 +1005,7 @@
   },
   "refresh": "5m",
   "schemaVersion": 12,
-  "version": 4,
-  "links": []
+  "version": 0,
+  "links": [],
+  "gnetId": null
 }
