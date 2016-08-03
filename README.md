@@ -1,3 +1,21 @@
+## Setup
+
+Create the prometheus namespace
+
+```
+kubectl create namespace prometheus
+```
+
+Create Kubernetes objects
+```
+kubectl --namespace=prometheus create -f node-exporter-ds.yaml
+kubectl --namespace=prometheus create -f node-exporter-service.yaml
+kubectl --namespace=prometheus create -f prometheus-configmap.yaml
+kubectl --namespace=prometheus create -f prometheus-deployment.yaml
+kubectl --namespace=prometheus create -f prometheus-service.yaml
+kubectl --namespace=prometheus create -f grafana
+```
+
 ## Accessing Prometheus
 
 The prometheus built in expression editor can show metrics and build simple
@@ -7,7 +25,7 @@ is not intended to be used as a dashboard.
 To access the prometheus built-in expression editor:
 
 ```
-kubectl get pods -l app=prometheus -o name | cut -d/ -f2 | xargs -I{} kubectl port-forward {} 9090:9090
+kubectl --namespace=prometheus get pods -l app=prometheus -o name | cut -d/ -f2 | xargs -I{} kubectl --namespace=prometheus port-forward {} 9090:9090
 ```
 
 If you want to view grafana, the dashboard we're using to graph prometheus
@@ -20,6 +38,7 @@ kubectl proxy
 And then you can access the dashboard at
 http://localhost:8001/api/v1/proxy/namespaces/prometheus/services/grafana/
 
+Once in Grafana dashboard click on Grafana icon on the upper right corner and choose "Data Sources". Add a new data source named prometheus with prometheus type. Set the http address to prometheus kubernetes service's ClusterIP such as http://10.0.0.157:9090 . Go back to the home screen and import dashboards available in grafana/dashboards folder.
 
 ## TODOS:
 
