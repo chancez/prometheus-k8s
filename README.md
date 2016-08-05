@@ -38,7 +38,7 @@ kubectl proxy
 And then you can access the dashboard at
 http://localhost:8001/api/v1/proxy/namespaces/prometheus/services/grafana/
 
-Once in Grafana dashboard click on Grafana icon on the upper right corner and choose "Data Sources". Add a new data source named prometheus with prometheus type. Set the http address to prometheus kubernetes service's ClusterIP such as http://10.0.0.157:9090 . Go back to the home screen and import dashboards available in grafana/dashboards folder.
+Once in Grafana dashboard click on Grafana icon on the upper right corner and choose "Data Sources". Add a new data source named prometheus with prometheus type. Set the http address to http://prometheus:9090 . Go back to the home screen and import dashboards available in grafana/dashboards folder.
 
 ## TODOS:
 
